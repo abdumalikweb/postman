@@ -7,9 +7,17 @@ const portfolioModal = document.getElementById("portfolio-modal");
 const portfolioBtn = document.getElementById("portfolio-add-btn");
 const modalOpenBtn = document.getElementById("modal-open-btn");
 
-function getRow({ _id, name, url, photo }) {
+let selected = null;
+let limit = 5;
+let page = 1;
+
+const changeNote = () => {
+  saveEditBtn.innerHTML = selected ? "Save" : "Add";
+};
+
+function getRow({ id, _id, name, url, photo }) {
   return `<tr>
-      <th scope="row">${_id}</th>
+      <th scope="row">${id}</th>
       <td>
         <img width=50px src="${IMAGE_URL}${photo._id}.${
     photo.name.split(".")[1]
@@ -22,11 +30,12 @@ function getRow({ _id, name, url, photo }) {
         <button
           class="btn btn-primary"
           data-bs-toggle="modal"
-          data-bs-target="#experience-modal"
+          data-bs-target="#portfolio-modal"
+          onclick={editExp('${_id}')}
         >
           <i class="bi bi-pencil-square"></i>
         </button>
-        <button class="btn btn-danger" onclick="{deleteExp()}">
+        <button class="btn btn-danger"  onclick={deleteExp('${_id}')}">
           <i class="bi bi-trash3"></i>
         </button>
       </td>
@@ -40,8 +49,8 @@ function getPortfolios() {
 </div>`;
   request.get("portfolios").then((res) => {
     portfolioRow.innerHTML = "";
-    res.data.data.forEach((el) => {
-      portfolioRow.innerHTML += getRow(el);
+    res.data.data.map((el, i) => {
+      portfolioRow.innerHTML += getRow({ id: i + 1, ...el });
     });
   });
 }
@@ -69,3 +78,8 @@ portfolioForm.addEventListener("submit", function (e) {
     });
   }
 });
+
+
+
+
+
