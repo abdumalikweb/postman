@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LESSON 5</title>
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style/admin.css" />
+  </head>
+  <body>
+    <aside>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item nav-logo">
+            <a class="nav-link" href="dashboard.html"
+              ><i class="uil uil-apple-alt"></i>Logo</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard.html">
+              <i class="uil uil-home"></i>Dashboard</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="experiences.html">
+              <i class="uil uil-copy"></i>Experiences</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"> <i class="uil uil-copy"></i>Skills</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="portfolio.html">
+              <i class="uil uil-copy"></i>Portfolios</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="uil uil-copy"></i>Messages</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div class="aside-bottom">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="logout nav-link" href="#">
+              <i class="uil uil-copy"></i>Log Out</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link switch-link" href="#">
+              <i class="uil uil-copy"></i>Dark mode
+              <div class="switch">
+                <input type="checkbox" /></div
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+    <main></main>
+    <header>
+      <button class="hamburger"><i class="uil uil-bars"></i></button>
+      <a class="avatar" href="profile.html">
+        <span></span>
+        <i class="bi bi-person"></i
+      ></a>
+    </header>
+    <div class="modal fade" tabindex="-1" id="portfolio-modal">
+      <form id="portfolioForm" class="g-3 needs-validation" novalidate>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add portfolio</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="d-flex justify-content-between">
+              <h3>Expericences</h3>
+              <button
+                class="btn btn-success"
+                data-bs-toggle="modal"
+                data-bs-target="#experience-modal"
+                id="addBtn"
+              >
+                Add
+              </button>
+            </div>
+            <div id="experiences">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">WorkName</th>
+                    <th scope="col">CompanyName</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Start date</th>
+                    <th scope="col">End Date</th>
+                    <th colspan="2" scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="experiences-row"></tbody>
+              </table>
+              <nav aria-label="navigation">
+                <ul class="pagination"></ul>
+              </nav>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="portfolio" class="form-label">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="portfolio"
+                  placeholder="portfolio"
+                  required
+                />
+                <div class="valid-feedback">Rahmat to'ldirganingiz uchun !</div>
+                <div class="invalid-feedback">Iltimos to'ldiring !</div>
+              </div>
+              <div class="mb-3">
+                <label for="portfolioUrl" class="form-label">Url</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="portfolioUrl"
+                  placeholder="portfolioUrl"
+                  required
+                />
+                <div class="valid-feedback">Rahmat to'ldirganingiz uchun !</div>
+                <div class="invalid-feedback">Iltimos to'ldiring !</div>
+              </div>
+              <div class="mb-3">
+                <label for="portfolioImage" class="form-label">Image</label>
+                <input
+                  type="file"
+                  id="portfolioImage"
+                  class="form-control"
+                  placeholder="url"
+                  required
+                />
+                <div class="valid-feedback">Rahmat to'ldirganingiz uchun !</div>
+                <div class="invalid-feedback">Iltimos to'ldiring !</div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="submit"
+                id="portfolio-add-btn"
+                class="btn btn-primary"
+              >
+                Add portfolio
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"
+      integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/const.js"></script>
+    <script src="js/request.js"></script>
+    <script src="js/main.js"></script>
+    <script src="/js/partfolio.js"></script>
+  </body>
+</html>

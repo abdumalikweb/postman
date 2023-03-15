@@ -1,0 +1,185 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+:root {
+  --aside-width: 300px;
+  --header-height: 80px;
+  --trans-second: 0.3s;
+  --content-padding: 15px;
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+}
+
+.close,
+.close ~ main,
+.close ~ header {
+  --aside-width: 60px;
+}
+
+.dark {
+  background-color: black;
+}
+
+.dark * {
+  color: white !important;
+}
+
+.dark aside {
+  border-color: white;
+}
+
+aside {
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: var(--aside-width);
+  height: 100vh;
+  border-right: 1px solid black;
+  transition: var(--trans-second);
+  overflow: auto;
+}
+
+aside::-webkit-scrollbar {
+  width: 0;
+}
+
+.nav {
+  list-style-type: none;
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: var(--header-height);
+}
+
+.nav-link {
+  display: block;
+  padding: 15px;
+  font-size: 30px;
+  white-space: nowrap;
+  color: rgb(10, 10, 10);
+}
+
+.nav-link i {
+  margin-right: 15px;
+}
+
+.switch-link {
+  display: flex;
+  align-items: center;
+}
+
+.switch {
+  display: flex;
+  align-items: center;
+}
+
+.switch input {
+  margin-left: 10px;
+  width: 55px;
+  height: 30px;
+  padding: 2.5px;
+  background-color: grey;
+  border-radius: 15px;
+  appearance: none;
+  cursor: pointer;
+}
+
+.switch input::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border-radius: 12.5px;
+  background-color: white;
+  transition: 0.5s;
+}
+
+.switch input:checked::after {
+  margin-left: 25px;
+  background-color: black;
+}
+
+.switch input:checked {
+  background-color: white;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  width: 100%;
+  z-index: 2;
+}
+
+.hamburger {
+  background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 40px;
+}
+
+.avatar {
+  font-size: 30px;
+}
+
+main,
+header {
+  left: var(--aside-width);
+  padding: var(--content-padding);
+  width: calc(100vw - var(--aside-width));
+  transition: var(--trans-second);
+}
+
+main {
+  position: relative;
+  top: var(--header-height);
+  height: calc(100vh - var(--header-height));
+  overflow: auto;
+}
+
+main::-webkit-scrollbar {
+  width: 15px;
+}
+
+main::-webkit-scrollbar-thumb {
+  background-color: blue;
+}
+
+main::-webkit-scrollbar-track {
+  background-color: grey;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --aside-width: 60px;
+  }
+  .close,
+  .close ~ main,
+  .close ~ header {
+    --aside-width: 300px;
+  }
+}
