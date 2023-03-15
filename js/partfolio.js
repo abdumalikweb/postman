@@ -35,7 +35,7 @@ function getRow({ id, _id, name, url, photo }) {
         >
           <i class="bi bi-pencil-square"></i>
         </button>
-        <button class="btn btn-danger"  onclick={deleteExp('${_id}')}">
+        <button class="btn btn-danger"  onclick={deleteExp('${_id}')}>
           <i class="bi bi-trash3"></i>
         </button>
       </td>
@@ -79,7 +79,11 @@ portfolioForm.addEventListener("submit", function (e) {
   }
 });
 
-
-
-
-
+function deleteExp(_id) {
+  let check = confirm("Rostanam o'chirishni xohlaysizmi ?");
+  if (check) {
+    request.delete(`portfolios/${_id}`).then(() => {
+      getPortfolios();
+    });
+  }
+}
