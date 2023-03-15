@@ -20,6 +20,14 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="style/admin.css" />
+    <style>
+      .spinner-border{
+         margin: 150px 300%;
+        display:flex;
+
+        justify-content: center;
+      }
+    </style>
   </head>
   <body>
     <aside>
@@ -72,7 +80,37 @@
         </ul>
       </div>
     </aside>
-    <main></main>
+    <main>
+      <div class="d-flex justify-content-between">
+        <h3>Expericences</h3>
+        <button
+          class="btn btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#portfolio-modal"
+          id="modal-open-btn"
+        >
+          Add
+        </button>
+      </div>
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Photo</th>
+              <th scope="col">Name</th>
+              <th colspan="2" scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="portfolio-row">
+            
+          </tbody>
+        </table>
+        <nav aria-label="navigation">
+          <ul class="pagination"></ul>
+        </nav>
+      </div>
+    </main>
     <header>
       <button class="hamburger"><i class="uil uil-bars"></i></button>
       <a class="avatar" href="profile.html">
@@ -93,36 +131,7 @@
                 aria-label="Close"
               ></button>
             </div>
-            <div class="d-flex justify-content-between">
-              <h3>Expericences</h3>
-              <button
-                class="btn btn-success"
-                data-bs-toggle="modal"
-                data-bs-target="#experience-modal"
-                id="addBtn"
-              >
-                Add
-              </button>
-            </div>
-            <div id="experiences">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">WorkName</th>
-                    <th scope="col">CompanyName</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Start date</th>
-                    <th scope="col">End Date</th>
-                    <th colspan="2" scope="col">Actions</th>
-                  </tr>
-                </thead>
-                <tbody id="experiences-row"></tbody>
-              </table>
-              <nav aria-label="navigation">
-                <ul class="pagination"></ul>
-              </nav>
-            </div>
+
             <div class="modal-body">
               <div class="mb-3">
                 <label for="portfolio" class="form-label">Name</label>
@@ -195,6 +204,6 @@
     <script src="js/const.js"></script>
     <script src="js/request.js"></script>
     <script src="js/main.js"></script>
-    <script src="/js/partfolio.js"></script>
+    <script src="./js/partfolio.js"></script>
   </body>
 </html>

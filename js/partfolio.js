@@ -11,7 +11,7 @@ function getRow({ _id, name, url, photo }) {
   return `<tr>
       <th scope="row">${_id}</th>
       <td>
-        <img width="50px" src="${IMAGE_URL}${photo._id}.${
+        <img width=50px src="${IMAGE_URL}${photo._id}.${
     photo.name.split(".")[1]
   }" alt=${name}/>
       </td>
